@@ -15,12 +15,9 @@ set number
 " Enable syntax highlighting
 syntax on
 " Highlight current line
-set cursorline
+"set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
-" Show 'invisible' characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
 " Always show status line
 set laststatus=2
 " Enable mouse in all modes
@@ -33,4 +30,3 @@ set showmode
 set title
 " Show the (partial) command as it's being typed
 set showcmd
-
