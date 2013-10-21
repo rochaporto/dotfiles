@@ -1,5 +1,6 @@
 [user]
-	email = ricardo@catalyst.net.nz
+	email = rocha.porto@gmail.com 
 	name = Ricardo Rocha
+	signingkey = AFCFC7D8
 [push]
 	default = matching
