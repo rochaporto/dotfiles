@@ -1,0 +1,1 @@
+export GPGKEY=AFCFC7D8
