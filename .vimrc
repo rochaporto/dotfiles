@@ -9,11 +9,6 @@ syntax on
 " cyan instead of darkblue
 highlight comment ctermfg=cyan
 
-set tabstop=2
-set expandtab
-set softtabstop=2
-set shiftwidth=2
-
 highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
 match LiteralTabs /\s\  /
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
@@ -29,7 +24,7 @@ au BufRead,BufNewFile *_spec.rb
   \ nmap <F8> :!rspec --color %<CR>
 
 " enable indentation for =>'s
-filetype plugin indent on
+filetype indent on
 
 " use the OS clipboard by default
 set clipboard=unnamed
@@ -43,3 +38,6 @@ set backspace=indent,eol,start
 " enable mouse in all modes
 set mouse=a
 
+filetype plugin on
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
