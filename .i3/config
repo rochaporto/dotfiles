@@ -158,3 +158,11 @@ bindsym $mod+plus exec amixer -c 0 set Master 2dB+
 bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1dB-
 bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1dB+
 bindsym XF86AudioMute exec amixer -c 0 toggle Master mute
+
+# Media controls (custom keys)
+bindsym $mod+P exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+# Media controls (builtin)
+bindsym XF86AudioPlay exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioNext exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrev exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
