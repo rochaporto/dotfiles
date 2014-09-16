@@ -91,3 +91,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export GOPATH=$HOME/ws/gopath
+export PATH=$PATH:$GOPATH/bin
+export PROMPT_DIRTRIM=3
