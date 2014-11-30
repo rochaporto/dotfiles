@@ -51,3 +51,7 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif
+
+" run golint when saving golang files
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
