@@ -39,6 +39,7 @@ set backspace=indent,eol,start
 set mouse=a
 
 filetype plugin on
+let g:gofmt_command="goimports"
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
@@ -52,6 +53,5 @@ if has("gui_running")
   endif
 endif
 
-" run golint when saving golang files
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
 autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
