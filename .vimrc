@@ -1,5 +1,6 @@
 " turn off auto adding comments on next line (for reliable paste)
 " http://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
+exec pathogen#infect()
 set fo=tcq
 set nocompatible
 set modeline

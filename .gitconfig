@@ -4,3 +4,8 @@
 	signingkey = AFCFC7D8
 [push]
 	default = matching
+[gitreview]
+	scheme = https
+	port = 443
+	username = rocha
+[diff]

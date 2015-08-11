@@ -1,16 +1,6 @@
-#!/usr/bin/perl -w
+#!/bin/bash
 
-use strict;
-use IO::All;
-use LWP::UserAgent;
-use Getopt::Long qw(GetOptions);
-#use Gtk2::Notify;
-my %opt;
-GetOptions(\%opt, 'public|p');
+text=$(xclip -o)
+url=$(curl -s -d text=\\"$text\\" https://stikked.web.cern.ch/stikked/api/create)
 
-my $url = 'http://paste.wgtn.cat-it.co.nz/';
-$url = 'http://paste.dollyfish.net.nz/' if $opt{public};
-
-my $response = LWP::UserAgent->new->post($url, [ 'text', scalar(`xclip -o`) ]);
-$response->header('location') > io '| xclip -i' if $response->header('location');
-#system('xte', 'mouseclick 2');
+echo $url | xclip -i

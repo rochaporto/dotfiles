@@ -147,6 +147,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        position bottom
 }
 
 # Lock screen
@@ -169,3 +170,7 @@ bindsym XF86AudioPrev exec dbus-send --print-reply --session --dest=org.mpris.Me
 
 # Paste bot key
 bindsym $mod+c exec $HOME/bin/paste-bot
+
+# Startup apps
+exec nm-applet
+exec volumeicon
