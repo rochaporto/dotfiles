@@ -148,16 +148,17 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         position bottom
+        tray_output primary
 }
 
 # Lock screen
 bindsym Ctrl+$mod+l exec i3lock -c 222222 && dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
 
 # Volume controls
-bindsym $mod+minus exec amixer -c 0 set Master 2dB-
-bindsym $mod+plus exec amixer -c 0 set Master 2dB+
-bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1dB-
-bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1dB+
+bindsym $mod+minus exec amixer -D pulse sset Master 5%-
+bindsym $mod+plus exec amixer -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioMute exec amixer -c 0 toggle Master mute
 
 # Media controls (custom keys)
@@ -172,5 +173,5 @@ bindsym XF86AudioPrev exec dbus-send --print-reply --session --dest=org.mpris.Me
 bindsym $mod+c exec $HOME/bin/paste-bot
 
 # Startup apps
-exec nm-applet
-exec volumeicon
+exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
