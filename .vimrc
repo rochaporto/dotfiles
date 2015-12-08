@@ -39,6 +39,10 @@ set backspace=indent,eol,start
 " enable mouse in all modes
 set mouse=a
 
+" better tab completion for tabnew
+set wildmode=longest,list,full
+set wildmenu
+
 filetype plugin on
 let g:gofmt_command="goimports"
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
