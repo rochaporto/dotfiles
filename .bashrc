@@ -96,4 +96,6 @@ export GOPATH=$HOME/ws/gopath
 export PATH=$PATH:$GOPATH/bin
 export PROMPT_DIRTRIM=3
 export GPG_TTY=$(tty)
-gpg-agent --daemon
+if [ -z "$(pgrep gpg-agent)" ]; then
+	gpg-agent --daemon > /dev/null
+fi
