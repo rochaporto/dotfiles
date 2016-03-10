@@ -95,6 +95,8 @@ fi
 export GOPATH=$HOME/ws/gopath
 export PATH=$PATH:$GOPATH/bin
 export PROMPT_DIRTRIM=3
+#export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
+export PS1='\[\e[31m\]\u\[\e[90m\]@\[\e[34m\]\h \[\e[33m\]\w\[\e[37m\]$(__git_ps1 " (%s)")\[\e[90m\]\$ \[\e[39m\]'
 export GPG_TTY=$(tty)
 if [ -z "$(pgrep gpg-agent)" ]; then
 	gpg-agent --daemon > /dev/null
