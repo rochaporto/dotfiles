@@ -1,3 +1,5 @@
+export NO_AT_BRIDGE=1 # to prevent accessibility bus warnings
+export GOPATH=~/gopath
 export GPGKEY=AFCFC7D8
 export ETCD=$HOME/ws/etcd-v2.0.5-linux-amd64
 export KUBROOT=$HOME/ws/kubernetes
