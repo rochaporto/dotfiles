@@ -93,10 +93,11 @@ if ! shopt -oq posix; then
 fi
 
 export PS1='\[\e[31m\]\u\[\e[90m\]@\[\e[34m\]\h \[\e[33m\]\w\[\e[37m\]$(__git_ps1 " (%s)")\[\e[90m\]\$ \[\e[39m\]'
-export GOPATH=$HOME/ws/gopath
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH
 export PROMPT_DIRTRIM=3
 export GPG_TTY=$(tty)
 if [ -z "$(pgrep gpg-agent)" ]; then
 	gpg-agent --daemon > /dev/null
 fi
+
+[[ -s "/home/ricardo/.gvm/scripts/gvm" ]] && source "/home/ricardo/.gvm/scripts/gvm"
