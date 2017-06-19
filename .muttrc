@@ -1,0 +1,49 @@
+set folder=imaps://rbritoda@imap.cern.ch
+set imap_authenticators="gssapi:login"
+set spoolfile=+INBOX
+
+set realname = "Ricardo Rocha"
+set from='ricardo.rocha@cern.ch'
+set envelope_from = yes
+
+set sendmail="~/bin/msmtp/bin/msmtp --account=cern"
+
+# default folders
+set record="=Sent"
+set postponed="=Drafts"
+
+# caching
+set header_cache=~/.mutt/headercache
+set message_cachedir=~/.mutt/messagecache
+
+# speed optimization
+set sleep_time=0
+set mail_check=60
+
+# usability
+set pager_index_lines=20
+set sort = threads
+set editor=vim
+set autoedit
+set edit_headers
+set smart_wrap
+
+# pager settings
+ignore *
+unignore From To Reply-To Subject Cc
+bind pager <up> previous-line
+bind pager <down> next-line
+
+# gnupg
+source ~/.mutt/gpg.rc
+#set pgp_autosign
+set pgp_use_gpg_agent=yes
+set pgp_sign_as="0xAFCFC7D8"
+set pgp_verify_sig=yes
+set pgp_timeout=3600
+
+# sidebar
+set sidebar_visible
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
