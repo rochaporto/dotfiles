@@ -172,7 +172,6 @@ bindsym $mod+P exec dbus-send --print-reply --session --dest=org.mpris.MediaPlay
 bindsym XF86AudioPlay exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioNext exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym XF86AudioPrev exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 
 # Paste bot key
 bindsym $mod+c exec $HOME/bin/paste-bot
@@ -181,3 +180,5 @@ bindsym $mod+c exec $HOME/bin/paste-bot
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 
+# Shutter screenshot key
+bindsym Ctrl+$mod+s exec shutter -s
