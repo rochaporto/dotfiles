@@ -92,6 +92,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export NO_AT_BRIDGE=1
 export PS1='\[\e[31m\]\u\[\e[90m\]@\[\e[34m\]\h \[\e[33m\]\w\[\e[37m\]$(__git_ps1 " (%s)")\[\e[90m\]\$ \[\e[39m\]'
 export PATH=$PATH
 export PROMPT_DIRTRIM=3
