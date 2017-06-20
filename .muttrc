@@ -10,7 +10,7 @@ set envelope_from=yes
 set sendmail="~/bin/msmtp/bin/msmtp --account=cern"
 
 # address providers
-set query_command="/home/ricardo/.mutt/address-providers/mutt_ldap '%s'"
+set query_command="~/.mutt/address-providers/mutt_ldap '%s'"
 
 # default folders
 set record="=Sent"
@@ -27,7 +27,7 @@ set mail_check=60
 # usability
 set pager_index_lines=20
 set sort = threads
-set editor=vim
+set editor="vim +/^$ ++1"
 set autoedit
 set edit_headers
 set smart_wrap
@@ -43,13 +43,14 @@ bind pager <down> next-line
 
 # gnupg
 source ~/.mutt/gpg.rc
-#set pgp_autosign
+set pgp_autosign
 set pgp_use_gpg_agent=yes
-set pgp_sign_as="0xAFCFC7D8"
+set pgp_sign_as="0x5453F6BE"
 set pgp_verify_sig=yes
-set pgp_timeout=3600
+set pgp_timeout=5
 
 # sidebar
+sidebar_whitelist INBOX
 set sidebar_visible
 set sidebar_short_path
 set sidebar_folder_indent
@@ -62,4 +63,6 @@ bind index,pager <C-Up> sidebar-prev
 bind index,pager <C-Down> sidebar-next
 bind index,pager \CO sidebar-open
 macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
-color sidebar_new yellow default
+
+# archiving
+macro index,pager a "<save-message>=Archives/2017<enter><enter>" "Archive"
