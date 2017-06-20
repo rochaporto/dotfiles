@@ -1,15 +1,16 @@
 set folder=imaps://rbritoda@imap.cern.ch
 set imap_authenticators="gssapi:login"
+set imap_check_subscribed=yes
 set spoolfile=+INBOX
 
 set realname = "Ricardo Rocha"
 set from='ricardo.rocha@cern.ch'
-set envelope_from = yes
+set envelope_from=yes
 
 set sendmail="~/bin/msmtp/bin/msmtp --account=cern"
 
 # address providers
-set query_command = "/home/ricardo/.mutt/address-providers/mutt_ldap '%s'"
+set query_command="/home/ricardo/.mutt/address-providers/mutt_ldap '%s'"
 
 # default folders
 set record="=Sent"
@@ -31,6 +32,9 @@ set autoedit
 set edit_headers
 set smart_wrap
 
+# html email
+auto_view text/html
+
 # pager settings
 ignore *
 unignore From To Reply-To Subject Cc
@@ -47,6 +51,15 @@ set pgp_timeout=3600
 
 # sidebar
 set sidebar_visible
-set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_indent_string=" "
+set sidebar_new_mail_only
+set sidebar_format="%B%?F? [%F]?%* %N"
+set sidebar_sort_method="path"
 set mail_check_stats
-
+bind index,pager <C-Up> sidebar-prev
+bind index,pager <C-Down> sidebar-next
+bind index,pager \CO sidebar-open
+macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
+color sidebar_new yellow default
