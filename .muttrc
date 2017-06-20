@@ -8,6 +8,9 @@ set envelope_from = yes
 
 set sendmail="~/bin/msmtp/bin/msmtp --account=cern"
 
+# address providers
+set query_command = "/home/ricardo/.mutt/address-providers/mutt_ldap '%s'"
+
 # default folders
 set record="=Sent"
 set postponed="=Drafts"
