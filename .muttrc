@@ -66,3 +66,6 @@ macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
 
 # archiving
 macro index,pager a "<save-message>=Archives/2017<enter><enter>" "Archive"
+
+# colors
+source ~/.mutt/colors-solarized-light-16.rc
