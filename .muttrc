@@ -50,7 +50,7 @@ set pgp_verify_sig=yes
 set pgp_timeout=5
 
 # sidebar
-sidebar_whitelist INBOX
+sidebar_whitelist imaps://rbritoda@imap.cern.ch/INBOX
 set sidebar_visible
 set sidebar_short_path
 set sidebar_folder_indent
