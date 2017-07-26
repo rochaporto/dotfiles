@@ -10,7 +10,7 @@ set envelope_from=yes
 set sendmail="~/bin/msmtp/bin/msmtp --account=cern"
 
 # index
-set index_format="%4C %Z %{%b %d %H:%M} %-15.15L %s"
+set index_format="%4C %Z %[%b %d %H:%M] %-15.15L %s"
 
 # address providers
 set query_command="~/.mutt/address-providers/mutt_ldap '%s'"
