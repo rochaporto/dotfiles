@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/ricardo/ws/cern-puppet/it-puppet-module-magnum/code/lib/puppet/provider/magnum_api_paste_ini'
+let g:netrw_dirhist_2='/home/ricardo/ws/cern-puppet/it-puppet-module-neutron/code/lib/puppet/provider/neutron_config'
+let g:netrw_dirhist_3='/home/ricardo/.mutt'
+let g:netrw_dirhist_4='/home/ricardo/gopath/src/gitlab.cern.ch/cloud-infrastructure/golang-neutron-dhcp/neutron'
+let g:netrw_dirhist_5='/home/ricardo/ws/cern-puppet/it-puppet-module-bagplus'
+let g:netrw_dirhist_6='/home/ricardo/ws/cern-puppet/it-puppet-module-nova'
+let g:netrw_dirhist_7='/home/ricardo/ws/cern-puppet/it-puppet-module-nova/code'
+let g:netrw_dirhist_8='/home/ricardo/ws/cern-puppet/it-puppet-module-nova/code/manifests'

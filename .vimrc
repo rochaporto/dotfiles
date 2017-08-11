@@ -4,8 +4,14 @@ exec pathogen#infect()
 set fo=tcq
 set nocompatible
 set modeline
-
+filetype plugin indent on
 syntax on
+
+" vim-go settings
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_enabled = ['vet', 'golint']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 " cyan instead of darkblue
 highlight comment ctermfg=cyan
@@ -17,15 +23,6 @@ match ExtraWhitespace /\s\+$/
 
 " show ruler
 set ruler
-
-" setup puppet manifest and spec options
-au BufRead,BufNewFile *.pp
-  \ set filetype=puppet
-au BufRead,BufNewFile *_spec.rb
-  \ nmap <F8> :!rspec --color %<CR>
-
-" enable indentation for =>'s
-filetype indent on
 
 " use the OS clipboard by default
 set clipboard=unnamed
@@ -43,11 +40,6 @@ set mouse=a
 set wildmode=longest,list,full
 set wildmenu
 
-filetype plugin on
-let g:gofmt_command="goimports"
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-autocmd FileType puppet setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
-
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=Inconsolata\ 10
@@ -58,5 +50,3 @@ if has("gui_running")
   endif
 endif
 
-set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
