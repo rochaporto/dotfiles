@@ -6,10 +6,6 @@ set nocompatible 		" vim improved
 filetype off
 filetype plugin indent on
 
-call plug#begin()
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-call plug#end()
-
 " general settings
 set noerrorbells	" mute beeps
 set number			" line numbers
@@ -64,7 +60,7 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-set clipboard=unnamed " use os clipboard by default
+set clipboard=unnamedplus " use x11 clipboard by default
 
 set esckeys " allow cursor keys in insert mode
 
@@ -74,12 +70,6 @@ set wildmode=longest,list,full " improved tabnew completion
 set wildmenu
 
 syntax enable
-if has('gui_running')
-  set transparency=3
-  " fix js regex syntax
-  set regexpengine=1
-  syntax enable
-endif
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
