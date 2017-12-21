@@ -6,6 +6,10 @@ set nocompatible 		" vim improved
 filetype off
 filetype plugin indent on
 
+call plug#begin()
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+call plug#end()
+
 " general settings
 set noerrorbells	" mute beeps
 set number			" line numbers
@@ -112,6 +116,7 @@ let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 0
 let g:go_highlight_operators = 0
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_types = 1
 au FileType go nmap <Leader>s <Plug>(go-def-split)
 au FileType go nmap <Leader>v <Plug>(go-def-vertical)
 au FileType go nmap <Leader>i <Plug>(go-info)
@@ -122,6 +127,7 @@ au FileType go nmap <leader>t  <Plug>(go-test)
 au FileType go nmap <leader>dt  <Plug>(go-test-compile)
 au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>e <Plug>(go-rename)
+
 " markdown
 autocmd BufNewFile,BufReadPost *.md setl ts=4 sw=4 sts=4 expandtab
 " dockerfile
@@ -166,5 +172,10 @@ let g:remoteSession = ($STY == "")
 if !g:remoteSession
   let g:airline_powerline_fonts=1
 endif
+
+" quickfix
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+nnoremap <leader>a :cclose<CR>
 
 " vim:ts=2:sw=2:et
