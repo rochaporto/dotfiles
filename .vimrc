@@ -6,6 +6,10 @@ set nocompatible 		" vim improved
 filetype off
 filetype plugin indent on
 
+"call plug#begin()
+"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+"call plug#end()
+
 " general settings
 set noerrorbells	" mute beeps
 set number			" line numbers
@@ -60,7 +64,7 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-set clipboard=unnamedplus " use x11 clipboard by default
+set clipboard=unnamed " use os clipboard by default
 
 set esckeys " allow cursor keys in insert mode
 
@@ -70,6 +74,12 @@ set wildmode=longest,list,full " improved tabnew completion
 set wildmenu
 
 syntax enable
+if has('gui_running')
+  set transparency=3
+  " fix js regex syntax
+  set regexpengine=1
+  syntax enable
+endif
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
@@ -95,12 +105,9 @@ au BufNewFile,BufRead *.jade setlocal expandtab ts=2 sw=2
 
 " go
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-let g:go_auto_sameids = 1
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
-let g:go_list_type = "quickfix"
-let g:go_test_timeout = "10s"
 let g:go_term_enabled = 1
 let g:go_snippet_engine = "neosnippet"
 let g:go_highlight_space_tab_error = 0
@@ -117,12 +124,9 @@ au FileType go nmap <Leader>l <Plug>(go-metalinter)
 au FileType go nmap <leader>r  <Plug>(go-run)
 au FileType go nmap <leader>b  <Plug>(go-build)
 au FileType go nmap <leader>t  <Plug>(go-test)
-au FileType go nmap <leader>tf  <Plug>(go-test-func)
 au FileType go nmap <leader>dt  <Plug>(go-test-compile)
 au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>e <Plug>(go-rename)
-au FileType go nmap <Leader>c <Plug>(go-coverage)
-au FileType go nmap <Leader>cb <Plug>(go-coverage-browser)
 
 " markdown
 autocmd BufNewFile,BufReadPost *.md setl ts=4 sw=4 sts=4 expandtab
@@ -174,4 +178,4 @@ map <C-n> :cn<CR>
 map <C-m> :cp<CR>
 nnoremap <leader>a :cclose<CR>
 
-"vim:ts=2:sw=2:et
+" vim:ts=2:sw=2:et
