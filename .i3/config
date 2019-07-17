@@ -156,7 +156,7 @@ bar {
 }
 
 # Lock screen
-bindsym Ctrl+$mod+l exec i3lock -c 222222 && dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
+bindsym $mod+ctrl+l exec --no-startup-id "i3lock -c 222222 && dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause"
 
 # Volume controls
 bindsym $mod+minus exec pactl set-sink-volume 1 -5%
