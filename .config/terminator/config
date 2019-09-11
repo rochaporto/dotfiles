@@ -7,10 +7,12 @@
     icon_bell = False
     cursor_blink = False
     cursor_color = "#aaaaaa"
+    font = Monospace 12
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 5000
     scrollback_infinite = True
+    use_system_font = False
     copy_on_selection = True
 [layouts]
   [[default]]
