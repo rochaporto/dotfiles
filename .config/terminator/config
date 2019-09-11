@@ -1,0 +1,24 @@
+[global_config]
+  scroll_tabbar = True
+  homogeneous_tabbar = False
+[keybindings]
+[profiles]
+  [[default]]
+    icon_bell = False
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 5000
+    scrollback_infinite = True
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
