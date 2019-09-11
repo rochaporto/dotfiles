@@ -26,6 +26,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# hide/show i3bar
+bindsym $mod+b bar mode hide
+bindsym $mod+Shift+b bar mode dock
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -159,11 +163,11 @@ bar {
 bindsym $mod+ctrl+l exec --no-startup-id "i3lock -c 222222 && dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause"
 
 # Volume controls
-bindsym $mod+minus exec pactl set-sink-volume 1 -5%
-bindsym $mod+plus exec pactl set-sink-volume 1 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+bindsym $mod+minus exec pactl set-sink-volume 0 -5%
+bindsym $mod+plus exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # Media controls (custom keys)
 bindsym $mod+P exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -182,3 +186,9 @@ exec --no-startup-id volumeicon
 
 # Shutter screenshot key
 bindsym Ctrl+$mod+s exec shutter -s
+
+# Brightness controls
+# increase screen brightness with notification
+bindsym XF86MonBrightnessUp exec "sudo light -A 5"
+# decrease screen brightness with notification
+bindsym XF86MonBrightnessDown exec "sudo light -U 5"
