@@ -12,6 +12,6 @@ i3-msg 'workspace 2; append_layout ~/.i3/workspace-2.json'
 sleep 3
 
 terminator -r clock -x tty-clock -c -C 3 -r &
-terminator -r metar -x 'while true; do setterm -cursor off; clear; echo -e "\e[33m$(curl -s https://tgftp.nws.noaa.gov/data/observations/metar/stations/LSGG.TXT)"; sleep 300; done'
+terminator -r metar -x 'while true; do setterm -cursor off; clear; echo -e "\e[33m$(curl -s https://tgftp.nws.noaa.gov/data/observations/metar/stations/LSGG.TXT)"; echo -e "\n\e[94m$(curl -s https://tgftp.nws.noaa.gov/data/forecasts/taf/stations/LSGG.TXT)"; sleep 600; done'
 terminator -r mutt -x mutt &
 google-chrome --new-window mattermost.web.cern.ch &

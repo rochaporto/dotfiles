@@ -26,7 +26,7 @@
                        "y": 0
                     },
                     "name": "metar",
-                    "percent": 0.5,
+                    "percent": 0.65,
                     "swallows": [
                        {
                        "window_role": "^metar$"
@@ -45,7 +45,7 @@
                        "y": 0
                     },
                     "name": "clock",
-                    "percent": 0.5,
+                    "percent": 0.35,
                     "swallows": [
                        {
                        "window_role": "^clock$"
