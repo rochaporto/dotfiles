@@ -1,0 +1,70 @@
+// vim:ts=4:sw=4:et
+{
+    // splitv split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 452,
+               "width": 722,
+               "x": 0,
+               "y": 0
+            },
+            "name": "/bin/bash",
+            "percent": 0.2,
+            "swallows": [
+               {
+               "window_role": "^clock$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 452,
+               "width": 722,
+               "x": 0,
+               "y": 0
+            },
+            "name": "/bin/bash",
+            "percent": 0.8,
+            "swallows": [
+               {
+               "window_role": "^mutt$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 1,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1438,
+       "width": 1278,
+       "x": 1291,
+       "y": 11
+    },
+    "name": "Mattermost",
+    "percent": 0.5,
+    "swallows": [
+       {
+       "class": "^Google\\-chrome$"
+       }
+    ],
+    "type": "con"
+}
+
