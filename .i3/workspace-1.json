@@ -85,7 +85,7 @@
                "x": 3532,
                "y": 28
             },
-            "name": "Google - Google Chrome",
+            "name": "chrome-main",
             "percent": 1,
             "swallows": [
                {
