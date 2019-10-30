@@ -184,6 +184,7 @@ bindsym $mod+c exec $HOME/bin/paste-bot
 # Startup apps
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
+exec --no-startup-id blueman-applet
 
 # Shutter screenshot key
 bindsym Ctrl+$mod+s exec shutter -s
