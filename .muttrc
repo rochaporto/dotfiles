@@ -1,42 +1,45 @@
-set folder=imaps://rbritoda@imap.cern.ch
-set imap_authenticators="gssapi:login"
-set imap_check_subscribed=yes
-set spoolfile=+INBOX
+set mbox_type = Maildir
+set folder = ~/mail/cern
+set spoolfile = +inbox
 
 set realname = "Ricardo Rocha"
 set from='ricardo.rocha@cern.ch'
 set envelope_from=yes
-
 set sendmail="~/bin/msmtp/bin/msmtp --account=cern"
 
 # index
 set index_format="%4C %Z %[%b %d %H:%M] %-15.15L %s"
 
-# address providers
-set query_command="~/.mutt/address-providers/mutt_ldap '%s'"
+# address book
+set query_command = "abook --mutt-query '%s'"
+macro generic,index,pager \ca "<shell-escape>abook<return>" "launch abook"
+bind editor <Tab> complete-query
 
 # default folders
-set record="=Sent"
+set record="=Archive"
 set postponed="=Drafts"
 
 # caching
-set header_cache=~/.mutt/headercache
-set message_cachedir=~/.mutt/messagecache
+set header_cache=~/.mutt/cache
+set message_cachedir=~/.mutt/cache
 
 # speed optimization
 set sleep_time=0
-set mail_check=60
 
 # usability
 set pager_index_lines=20
 set sort = threads
+set sort_browser = reverse-date
+set sort_aux = last-date-received
+set strict_threads=yes
+unset collapse_unread
 set editor="vim +/^$ ++1"
 set autoedit
 set edit_headers
-set smart_wrap
 
 # html email
 auto_view text/html
+alternative_order text/plain text/enriched text/html
 
 # pager settings
 ignore *
@@ -53,22 +56,25 @@ set pgp_verify_sig=yes
 set pgp_timeout=5
 
 # sidebar
-sidebar_whitelist imaps://rbritoda@imap.cern.ch/INBOX
-set sidebar_visible
-set sidebar_short_path
+set sidebar_visible=yes
+set sidebar_width=15
 set sidebar_folder_indent
-set sidebar_indent_string=" "
-set sidebar_new_mail_only
+set sidebar_short_path
 set sidebar_format="%B%?F? [%F]?%* %N"
-set sidebar_sort_method="path"
-set mail_check_stats
 bind index,pager <C-Up> sidebar-prev
 bind index,pager <C-Down> sidebar-next
 bind index,pager \CO sidebar-open
 macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
+mailboxes =inbox =Archive =jira-crm =Drafts ="Sent Items"
 
 # archiving
-macro index,pager a "<save-message>=Archives/2017<enter><enter>" "Archive"
+macro index,pager a "<save-message>=Archive<enter><enter>" "Archive"
+
+# search
+macro index S "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
 
 # colors
-source ~/.mutt/colors-solarized-light-16.rc
+source ~/.mutt/colors.rc
+
+# key bindings - mbsync
+macro index O "<enter-command>unset wait_key<enter><shell-escape>mbsync -a<return>" "Synchronise inbox folders and all past archives"

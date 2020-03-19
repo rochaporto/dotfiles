@@ -1,0 +1,48 @@
+Create Slave
+Sync All
+Expunge Both
+SyncState *
+
+# accounts
+imapaccount cern
+Host imap.cern.ch
+User rbritoda
+PassCmd "gpg -d ~/.mutt/isyncpass.gpg"
+SSLType IMAPS
+Port 993
+
+# remotes
+IMAPStore cern-remote
+Account cern
+
+# locals
+MaildirStore cern-local
+Path ~/mail/cern/
+Inbox ~/mail/cern/inbox
+
+Channel cern-archive
+Master :cern-remote:Archive
+Slave :cern-local:Archive
+
+Channel cern-drafts
+Master :cern-remote:Drafts
+Slave :cern-local:Drafts
+
+Channel cern-inbox
+Master :cern-remote:Inbox
+Slave :cern-local:INBOX
+
+Channel cern-jira
+Master :cern-remote:Inbox/jira-crm
+Slave :cern-local:jira-crm
+
+Channel cern-sent
+Master :cern-remote:"Sent Items"
+Slave :cern-local:"Sent Items"
+
+Group cern
+Channel cern-archive
+Channel cern-drafts
+Channel cern-inbox
+Channel cern-jira
+Channel cern-sent

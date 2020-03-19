@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# should be set as a crontab every 5min
+# crontab -e -u ricardo
+# */5 * * * * /home/ricardo/bin/mailsync
+
+# Run only if user logged in (prevent cron errors)
+pgrep -u "${USER:=$LOGNAME}" >/dev/null || { echo "$USER not logged in; sync will not run."; exit ;}
+# Run only if not already running in other instance
+pgrep -x mbsync >/dev/null && { echo "mbsync is already running." ; exit ;}
+
+# Checks for internet connection and set notification script.
+ping -q -c 1 1.1.1.1 > /dev/null || { echo "No internet connection detected."; exit ;}
+
+date >> /tmp/maillog
+mbsync -a >> /tmp/maillog 2>&1
+notmuch new >> /tmp/maillog 2>&1
