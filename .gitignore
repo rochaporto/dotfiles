@@ -1,3 +1,8 @@
+bin/*
+!bin/ldap2abook
+!bin/mailsync
+!bin/paste-bot
+
 .weechat/logs
 .mutt/*cache
 .mutt/Archives*
