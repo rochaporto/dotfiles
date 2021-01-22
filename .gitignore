@@ -1,3 +1,5 @@
 .weechat/logs
 .mutt/*cache
 .mutt/Archives*
+.ssh/id_dsa
+.ssh/id_rsa
