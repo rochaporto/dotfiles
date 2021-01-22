@@ -157,7 +157,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         position bottom
-        tray_output primary
+#        tray_output primary
 }
 
 # Lock screen
