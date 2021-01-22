@@ -7,7 +7,7 @@
     icon_bell = False
     cursor_blink = False
     cursor_color = "#aaaaaa"
-    font = Monospace 12
+    font = Monospace 11
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 5000
