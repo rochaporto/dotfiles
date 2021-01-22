@@ -3,3 +3,4 @@
 .mutt/Archives*
 .ssh/id_dsa
 .ssh/id_rsa
+.ssh/known_hosts
