@@ -1,6 +1,7 @@
 .weechat/logs
 .mutt/*cache
 .mutt/Archives*
+.mutt/isyncpass.gpg
 .ssh/id_dsa
 .ssh/id_rsa
 .ssh/known_hosts
