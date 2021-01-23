@@ -44,8 +44,7 @@ scp lxplus.cern.ch:~/.mutt/isyncpass.gpg .mutt
 ## GPG
 Public Key: http://keys.gnupg.net/pks/lookup?search=0x5453F6BE&fingerprint=on&op=index
 ```bash
-scp -r lxplus.cern.ch:~/.gnupg/pubring.gpg ~/.gnupg
-scp -r lxplus.cern.ch:~/.gnupg/secring.gpg ~/.gnupg
+scp -r lxplus.cern.ch:~/.gnupg/* ~/.gnupg
 ```
 Helper commands:
 ```bash

@@ -3,9 +3,9 @@ bin/*
 !bin/mailsync
 !bin/paste-bot
 .gnupg/crls.d
-.gnupg/pubring.gpg~
 .gnupg/private-keys-v1.d
-.gnupg/pubring.gpg
+.gnupg/pubring.gpg*
+.gnupg/pubring.kbx*
 .gnupg/secring.gpg
 .gnupg/trustdb.gpg
 .mutt/*cache
