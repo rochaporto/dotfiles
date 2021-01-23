@@ -5,7 +5,7 @@ set spoolfile = +inbox
 set realname = "Ricardo Rocha"
 set from='ricardo.rocha@cern.ch'
 set envelope_from=yes
-set sendmail="~/bin/msmtp/bin/msmtp --account=cern"
+set sendmail="~/bin/msmtp --account=cern"
 
 # index
 set index_format="%4C %Z %[%b %d %H:%M] %-15.15L %s"
