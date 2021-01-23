@@ -47,6 +47,12 @@ Public Key: http://keys.gnupg.net/pks/lookup?search=0x5453F6BE&fingerprint=on&op
 scp -r lxplus.cern.ch:~/.gnupg/pubring.gpg ~/.gnupg
 scp -r lxplus.cern.ch:~/.gnupg/secring.gpg ~/.gnupg
 ```
+Helper commands:
+```bash
+gpg --list-keys
+gpg --list-secret-keys
+gpg --encrypt --armor sample.txt
+```
 
 ## Mail
 ```bash
