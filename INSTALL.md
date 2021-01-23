@@ -36,9 +36,16 @@ for f in .bash_aliases .bash_profile .bashrc .config/autorandr .config/terminato
 ## SSH
 ```bash
 mkdir ~/.ssh/controlmasters
-scp -r rbritoda@lxplus-cloud.cern.ch:~/.ssh/id_dsa ~/.ssh
-scp -r rbritoda@lxplus-cloud.cern.ch:~/.ssh/id_rsa ~/.ssh
-scp rbritoda@lxplus-cloud.cern.ch:~/.mutt/isyncpass.gpg .mutt
+scp -r lxplus.cern.ch:~/.ssh/id_dsa ~/.ssh
+scp -r lxplus.cern.ch:~/.ssh/id_rsa ~/.ssh
+scp lxplus.cern.ch:~/.mutt/isyncpass.gpg .mutt
+```
+
+## GPG
+Public Key: http://keys.gnupg.net/pks/lookup?search=0x5453F6BE&fingerprint=on&op=index
+```bash
+scp -r lxplus.cern.ch:~/.gnupg/pubring.gpg ~/.gnupg
+scp -r lxplus.cern.ch:~/.gnupg/secring.gpg ~/.gnupg
 ```
 
 ## Mail
@@ -71,6 +78,23 @@ system_default = system_default_sect
 [system_default_sect]
 MinProtocol = TLSv1
 CipherString = DEFAULT@SECLEVEL=1
+```
+
+## GSSAPI msmtp + MAXCMDLEN
+```bash
+sudo apt-get install autoconf automake libgnutls28-dev libtool gettext texinfo
+git clone https://git.marlam.de/git/msmtp.git
+```
+```bash
+vim src/smtp.c
+...
+#define SMTP_MAXCMDLEN 16384
+...
+```
+```bash
+autoreconf -i
+./configure --prefix=/home/ricardo --with-libgsasl
+make install
 ```
 
 ## Container Tools
