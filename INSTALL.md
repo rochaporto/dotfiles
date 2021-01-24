@@ -13,7 +13,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 ```bash
 apt-get update
 apt-get upgrade
-apt-get install abook blueman git golang-go google-chrome-stable hugo i3m i3status i3lock isync krb5-user \
+apt-get install abook blueman docker.io git golang-go google-chrome-stable hugo i3m i3status i3lock isync krb5-user \
 	meld mutt notmuch openafs-client openafs-krb5 python3 python3-pip spotify-client terminator vim
 ```
 ```bash
