@@ -104,6 +104,11 @@ make install
 
 ## Container Tools
 
+### docker
+```bash
+sudo usermod -aG docker ricardo
+```
+
 ### kubectl
 ```bash
 wget "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -O ~/bin/kubectl
