@@ -2,6 +2,8 @@
   scroll_tabbar = True
   homogeneous_tabbar = False
 [keybindings]
+  next_tab = <Primary>0
+  prev_tab = <Primary>1
 [profiles]
   [[default]]
     icon_bell = False
