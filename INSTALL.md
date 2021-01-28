@@ -17,7 +17,7 @@ apt-get install abook blueman docker.io git golang-go google-chrome-stable hugo 
 	meld mutt notmuch openafs-client openafs-krb5 python3 python3-pip spotify-client terminator vim
 ```
 ```bash
-pip install --user python-magnumclient python-openstackclient
+pip install --user keystoneauth1[kerberos] python-magnumclient python-openstackclient
 ```
 
 ## dotfiles
@@ -127,6 +127,21 @@ rm -rf helm-v3.5.0* linux-amd64
 VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
 curl -sSL -o ~/bin/argocd https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-linux-amd64
 chmod 755 ~/bin/argocd
+```
+
+### gcloud
+https://cloud.google.com/sdk/docs/install#deb
+```bash
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+sudo apt-get install -y apt-transport-https ca-certificates gnupg
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+sudo apt-get update && sudo apt-get install -y google-cloud-sdk
+```
+
+### eksctl
+```bash
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+mv /tmp/eksctl ~/bin
 ```
 
 ## Media & Chat
