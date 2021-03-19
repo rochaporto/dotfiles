@@ -1,2 +1,7 @@
 text/html;                      links %s; nametemplate=%s.html
 text/html;                      links -dump %s; nametemplate=%s.html; copiousoutput
+application/pdf; evince %s; test=test -n "$DISPLAY"
+application/x-bzpdf; evince %s; test=test -n "$DISPLAY"
+application/x-ext-pdf; evince %s; test=test -n "$DISPLAY"
+application/x-gzpdf; evince %s; test=test -n "$DISPLAY"
+application/x-xzpdf; evince %s; test=test -n "$DISPLAY"
