@@ -5,7 +5,7 @@ SyncState *
 
 # accounts
 imapaccount cern
-Host imap.cern.ch
+Host cernmail.cern.ch
 User rbritoda
 PassCmd "gpg -d ~/.mutt/isyncpass.gpg"
 SSLType IMAPS
