@@ -194,3 +194,9 @@ bindsym Ctrl+$mod+s exec maim -s | xclip -selection clipboard -t image/png
 bindsym XF86MonBrightnessUp exec "sudo light -A 5"
 # decrease screen brightness with notification
 bindsym XF86MonBrightnessDown exec "sudo light -U 5"
+
+# workspaces
+assign [class="Slack"] 8
+assign [window_role="^mail$"] 2
+# for some reason assign did not work
+for_window [class="Spotify"] move to workspace 9
