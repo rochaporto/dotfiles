@@ -196,7 +196,8 @@ bindsym XF86MonBrightnessUp exec "sudo light -A 5"
 bindsym XF86MonBrightnessDown exec "sudo light -U 5"
 
 # workspaces
-assign [class="Slack"] 8
 assign [window_role="^mail$"] 2
+assign [class="zoom"] 4
+assign [class="Slack"] 8
 # for some reason assign did not work
 for_window [class="Spotify"] move to workspace 9
