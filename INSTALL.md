@@ -66,24 +66,6 @@ crontab -e
 */5 * * * * /home/ricardo/bin/mailsync
 0 0 * * * /home/ricardo/bin/ldap2abook
 ```
-### Workaround for CERN Exchange
-```bash
-vim /etc/ssl/openssl.cnf
-
-# X.509v3 extensions in its main [= default] section.)
-openssl_conf = default_conf
-...
-				# identifier (optional, default: sha1)
-[default_conf]
-ssl_conf = ssl_sect
-
-[ssl_sect]
-system_default = system_default_sect
-
-[system_default_sect]
-MinProtocol = TLSv1
-CipherString = DEFAULT@SECLEVEL=1
-```
 
 ## GSSAPI msmtp + MAXCMDLEN
 ```bash
