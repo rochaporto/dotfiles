@@ -8,3 +8,5 @@
 [gitreview]
 	username = rocha-porto
 	username = rocha
+[pull]
+	rebase = true
