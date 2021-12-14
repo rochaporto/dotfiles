@@ -115,10 +115,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# Monitor binding
-bindsym $mod+Shift+w exec --no-startup-id xrandr --output eDP1 --primary --mode 1366x768 --rotate normal --output DP2-2-8 --mode 2560x1440 --right-of eDP1 --rotate normal --output DP2-3 --mode 1920x1080 --right-of DP2-2-8 --rotate normal
-bindsym $mod+Shift+s exec --no-startup-id xrandr --output eDP1 --primary --mode 1366x768 --rotate normal --output DP2-2-8 --off --output DP2-3 --off
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -201,3 +197,9 @@ assign [class="zoom"] 7
 assign [class="Slack"] 8
 # for some reason assign did not work
 for_window [class="Spotify"] move to workspace 9
+
+# Monitor binding
+bindsym $mod+Shift+p exec "mons -o"
+bindsym $mod+Shift+d exec "mons -d"
+bindsym $mod+Shift+s exec --no-startup-id xrandr --output eDP1 --primary --mode 1366x768 --rotate normal --output DP2-2-8 --off --output DP2-3 --off
+
