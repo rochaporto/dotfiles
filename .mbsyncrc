@@ -6,6 +6,7 @@ SyncState *
 # accounts
 imapaccount cern
 Host cernmail.cern.ch
+AuthMechs LOGIN
 User rbritoda
 PassCmd "gpg -d ~/.mutt/isyncpass.gpg"
 SSLType IMAPS
@@ -36,6 +37,10 @@ Channel cern-jira
 Master :cern-remote:Inbox/jira-crm
 Slave :cern-local:jira-crm
 
+Channel cern-cncf-toc
+Master :cern-remote:"Inbox/cncf toc"
+Slave :cern-local:cncf-toc
+
 Channel cern-sent
 Master :cern-remote:"Sent Items"
 Slave :cern-local:"Sent Items"
@@ -45,4 +50,5 @@ Channel cern-archive
 Channel cern-drafts
 Channel cern-inbox
 Channel cern-jira
+Channel cern-cncf-toc
 Channel cern-sent
