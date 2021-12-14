@@ -65,7 +65,7 @@ bind index,pager <C-Up> sidebar-prev
 bind index,pager <C-Down> sidebar-next
 bind index,pager \CO sidebar-open
 macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
-mailboxes =inbox =Archive =jira-crm =Drafts ="Sent Items"
+mailboxes =inbox =Archive =jira-crm ="cncf-toc" =Drafts ="Sent Items"
 
 # archiving
 macro index,pager a "<save-message>=Archive<enter><enter>" "Archive"
