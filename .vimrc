@@ -42,9 +42,7 @@ set re=1
 command! -nargs=* -complete=help Help vertical belowright help <args>
 autocmd FileType help wincmd L
 
-set wrap                " improved line wrap
-set textwidth=79
-set formatoptions=qrn1
+set wrap linebreak nolist columns=80 " soft wrap at 80 cols (visual wrap only)
 
 set autoindent          " improved indent
 set complete-=i
@@ -57,12 +55,6 @@ set expandtab
 
 set nrformats-=octal
 set shiftround
-
-if exists('+colorcolumn') " set 80 character line limit
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
 
 set clipboard=unnamed " use os clipboard by default
 
