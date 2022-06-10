@@ -33,7 +33,7 @@ set sort_browser = reverse-date
 set sort_aux = last-date-received
 set strict_threads=yes
 unset collapse_unread
-set editor="vim +/^$ ++1"
+set editor="vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
 set autoedit
 set edit_headers
 
@@ -56,7 +56,7 @@ set pgp_verify_sig=yes
 set pgp_timeout=5
 
 # sidebar
-set sidebar_visible=yes
+set sidebar_visible=no
 set sidebar_width=15
 set sidebar_folder_indent
 set sidebar_short_path
