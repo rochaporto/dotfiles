@@ -37,10 +37,6 @@ Channel cern-jira
 Master :cern-remote:Inbox/jira-crm
 Slave :cern-local:jira-crm
 
-Channel cern-cncf-toc
-Master :cern-remote:"Inbox/cncf toc"
-Slave :cern-local:cncf-toc
-
 Channel cern-sent
 Master :cern-remote:"Sent Items"
 Slave :cern-local:"Sent Items"
