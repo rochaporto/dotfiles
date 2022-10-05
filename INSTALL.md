@@ -54,6 +54,20 @@ gpg --encrypt --armor sample.txt
 ```
 
 ## Mail
+Authorize once per machine to get the refresh_token.
+```bash
+mutt_oauth2.py -a --authflow localhostauthcode ~/.mbsync.oauth2token
+```
+SASL XOAuth2 Plugin
+```bash
+git clone https://github.com/moriyoshi/cyrus-sasl-xoauth2.git
+./autogen.sh
+./configure
+make
+make install
+sudo make install
+```
+
 ```bash
 mkdir -p mail/cern
 mbsync -a

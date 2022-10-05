@@ -1,16 +1,17 @@
-Create Slave
+Create Near
 Sync All
 Expunge Both
 SyncState *
 
 # accounts
 imapaccount cern
-Host cernmail.cern.ch
-AuthMechs LOGIN
-User rbritoda
-PassCmd "gpg -d ~/.mutt/isyncpass.gpg"
-SSLType IMAPS
+Host outlook.office365.com
+AuthMechs XOAUTH2
 Port 993
+User ricardo.rocha@cern.ch
+PassCmd "mutt_oauth2.py ~/.mbsync.oauth2token"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 # remotes
 IMAPStore cern-remote
@@ -22,24 +23,24 @@ Path ~/mail/cern/
 Inbox ~/mail/cern/inbox
 
 Channel cern-archive
-Master :cern-remote:Archive
-Slave :cern-local:Archive
+Far :cern-remote:Archive
+Near :cern-local:Archive
 
 Channel cern-drafts
-Master :cern-remote:Drafts
-Slave :cern-local:Drafts
+Far :cern-remote:Drafts
+Near :cern-local:Drafts
 
 Channel cern-inbox
-Master :cern-remote:Inbox
-Slave :cern-local:INBOX
+Far :cern-remote:INBOX
+Near :cern-local:INBOX
 
 Channel cern-jira
-Master :cern-remote:Inbox/jira-crm
-Slave :cern-local:jira-crm
+Far :cern-remote:INBOX/jira-crm
+Near :cern-local:jira-crm
 
 Channel cern-sent
-Master :cern-remote:"Sent Items"
-Slave :cern-local:"Sent Items"
+Far :cern-remote:"Sent Items"
+Near :cern-local:"Sent Items"
 
 Group cern
 Channel cern-archive

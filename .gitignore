@@ -1,6 +1,7 @@
 bin/*
 !bin/ldap2abook
 !bin/mailsync
+!bin/mutt_oauth2.py
 !bin/paste-bot
 .gnupg/crls.d
 .gnupg/private-keys-v1.d
