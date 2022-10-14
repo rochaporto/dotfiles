@@ -184,6 +184,7 @@ exec --no-startup-id blueman-applet
 
 # Screenshot capture
 bindsym Ctrl+$mod+s exec maim -s | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png -o > /tmp/clipboard.png
 
 # Brightness controls
 # increase screen brightness with notification
