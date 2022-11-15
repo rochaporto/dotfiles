@@ -14,7 +14,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 apt-get update
 apt-get upgrade
 apt-get install abook blueman docker.io git golang-go google-chrome-stable hugo i3m i3status i3lock isync krb5-user links \
-	maim meld mutt notmuch openafs-client openafs-krb5 python3 python3-pip spotify-client terminator vim xclip
+	maim meld msmtp mutt notmuch openafs-client openafs-krb5 python3 python3-pip spotify-client terminator vim xclip
 ```
 ```bash
 pip install --user keystoneauth1[kerberos] python-magnumclient python-openstackclient
@@ -54,6 +54,9 @@ gpg --encrypt --armor sample.txt
 ```
 
 ## Mail
+
+Reference: https://unix.stackexchange.com/questions/625637/configuring-mbsync-with-authmech-xoauth2
+
 Authorize once per machine to get the refresh_token.
 ```bash
 mutt_oauth2.py -a --authflow localhostauthcode ~/.mbsync.oauth2token
@@ -63,6 +66,9 @@ SASL XOAuth2 Plugin
 git clone https://github.com/moriyoshi/cyrus-sasl-xoauth2.git
 ./autogen.sh
 ./configure
+
+sed -i 's%pkglibdir = ${CYRUS_SASL_PREFIX}/lib/sasl2%pkglibdir = ${CYRUS_SASL_PREFIX}/lib/x86_64-linux-gnu/sasl2%' Makefile
+
 make
 make install
 sudo make install
@@ -79,23 +85,6 @@ mbsync -a
 crontab -e
 */5 * * * * /home/ricardo/bin/mailsync
 0 0 * * * /home/ricardo/bin/ldap2abook
-```
-
-## GSSAPI msmtp + MAXCMDLEN
-```bash
-sudo apt-get install autoconf automake libgnutls28-dev libtool gettext texinfo
-git clone https://git.marlam.de/git/msmtp.git
-```
-```bash
-vim src/smtp.c
-...
-#define SMTP_MAXCMDLEN 16384
-...
-```
-```bash
-autoreconf -i
-./configure --prefix=/home/ricardo --with-libgsasl
-make install
 ```
 
 ## Container Tools
@@ -151,4 +140,18 @@ sudo snap install skype --classic
 ```bash
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo apt install ./zoom_amd64.deb
+```
+
+## Screen Flicker Lenovo X1
+
+Panel Self Refresh (PSR) disable:
+https://ljvmiranda921.github.io/notebook/2021/09/01/linux-thinkpad-screen-flicker/
+
+```bash
+sudo vi /etc/default/grub (after)
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash i915.enable_psr=0"
+
+sudo update-grub
+
+reboot
 ```
