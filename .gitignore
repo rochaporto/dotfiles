@@ -1,6 +1,7 @@
 bin/*
 !bin/ldap2abook
 !bin/mailsync
+!bin/mons
 !bin/mutt_oauth2.py
 !bin/paste-bot
 .gnupg/crls.d
