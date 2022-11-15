@@ -24,6 +24,9 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Enable touchpad tapping
+exec xinput set-prop "ELAN067B:00 04F3:31F8 Touchpad" "libinput Tapping Enabled" 1
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -160,11 +163,11 @@ bar {
 bindsym $mod+ctrl+l exec --no-startup-id "i3lock -c 222222 && dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause"
 
 # Volume controls
-bindsym $mod+minus exec pactl set-sink-volume 0 -5%
-bindsym $mod+plus exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym $mod+minus exec pactl set-sink-volume 3 -5%
+bindsym $mod+plus exec pactl set-sink-volume 3 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 3 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 3 +5%
+bindsym XF86AudioMute exec pactl set-sink-mute 3 toggle
 
 # Media controls (custom keys)
 bindsym $mod+P exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
