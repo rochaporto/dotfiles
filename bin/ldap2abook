@@ -1,5 +1,5 @@
 #!/bin/bash
-ldapsearch -LLL -z none -E pr=1000/noprompt -x -h xldap.cern.ch -b 'OU=Users,OU=Organic Units,DC=cern,DC=ch' '(&(objectClass=user))' dn objectclass mail displayName | sed 's/displayName/cn/g' > cern.ldif
+ldapsearch -LLL -z none -E pr=1000/noprompt -x -H ldap://xldap.cern.ch -b 'OU=Users,OU=Organic Units,DC=cern,DC=ch' '(&(objectClass=user))' dn objectclass mail displayName | sed 's/displayName/cn/g' > cern.ldif
 
 abook --convert --infile cern.ldif --informat ldif --outfile cern.abook --outformat abook
 
