@@ -3,6 +3,7 @@ bin/*
 !bin/mailsync
 !bin/mons
 !bin/mutt_oauth2.py
+!bin/os-coe-config
 !bin/paste-bot
 .gnupg/crls.d
 .gnupg/private-keys-v1.d

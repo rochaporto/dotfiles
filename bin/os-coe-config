@@ -1,0 +1,16 @@
+#!/bin/bash
+cp ~/.kube/config ~/.kube/config.bak
+
+project=$(echo $OS_PROJECT_NAME | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g')
+cluster="${project}-${1}"
+
+openstack coe cluster config --dir /tmp --force $1
+
+sed -i "s/user: admin/user: admin-${cluster}/g" /tmp/config
+sed -i "s/- name: admin/- name: admin-${cluster}/g" /tmp/config
+sed -i "s/name: default/name: ${cluster}/g" /tmp/config
+sed -i "s/current-context: default/current-context: ${cluster}/g" /tmp/config
+
+export KUBECONFIG=/tmp/config:~/.kube/config
+kubectl config view --flatten > ~/.kube/config.new
+mv ~/.kube/config.new ~/.kube/config
