@@ -4,6 +4,8 @@
 # crontab -e -u ricardo
 # */5 * * * * /home/ricardo/bin/mailsync
 
+export PATH=$PATH:/home/ricardo/bin
+
 # Run only if user logged in (prevent cron errors)
 pgrep -u "${USER:=$LOGNAME}" >/dev/null || { echo "$USER not logged in; sync will not run."; exit ;}
 # Run only if not already running in other instance
