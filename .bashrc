@@ -100,5 +100,18 @@ export GPG_TTY=$(tty)
 if [ -z "$(pgrep gpg-agent)" ]; then
 	gpg-agent --daemon > /dev/null
 fi
+export EDITOR=vim
+
+export OS_AUTH_TYPE="v3fedkerb"
+export OS_AUTH_URL="https://keystone.cern.ch/v3"
+export OS_IDENTITY_API_VERSION="3"
+export OS_IDENTITY_PROVIDER="sssd"
+export OS_MUTUAL_AUTH="disabled"
+export OS_PROJECT_DOMAIN_ID="default"
+export OS_PROJECT_NAME="Personal rbritoda"
+export OS_PROTOCOL="kerberos"
+export OS_REGION_NAME="cern"
+export OS_VOLUME_API_VERSION="3"
+
 
 [[ -s "/home/ricardo/.gvm/scripts/gvm" ]] && source "/home/ricardo/.gvm/scripts/gvm"
