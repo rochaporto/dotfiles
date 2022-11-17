@@ -163,11 +163,11 @@ bar {
 bindsym $mod+ctrl+l exec --no-startup-id "i3lock -c 222222 && dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause"
 
 # Volume controls
-bindsym $mod+minus exec pactl set-sink-volume 0 -5%
-bindsym $mod+plus exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym $mod+minus exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+plus exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Media controls (custom keys)
 bindsym $mod+P exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
