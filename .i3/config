@@ -181,9 +181,10 @@ bindsym XF86AudioPrev exec dbus-send --print-reply --session --dest=org.mpris.Me
 bindsym $mod+c exec $HOME/bin/paste-bot
 
 # Startup apps
-exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
 exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
+exec --no-startup-id volumeicon
 
 # Screenshot capture
 bindsym Ctrl+$mod+s exec maim -s | xclip -selection clipboard -t image/png
