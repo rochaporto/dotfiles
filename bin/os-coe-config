@@ -14,3 +14,4 @@ sed -i "s/current-context: default/current-context: ${cluster}/g" /tmp/config
 export KUBECONFIG=/tmp/config:~/.kube/config
 kubectl config view --flatten > ~/.kube/config.new
 mv ~/.kube/config.new ~/.kube/config
+chmod 600 ~/.kube/config
