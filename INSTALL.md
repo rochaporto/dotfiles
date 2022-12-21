@@ -17,7 +17,7 @@ apt-get install abook blueman docker.io git golang-go google-chrome-stable hugo 
 	maim meld msmtp mutt notmuch openafs-client openafs-krb5 pasystray python3 python3-pip spotify-client terminator vim xclip
 ```
 ```bash
-pip install --user keystoneauth1[kerberos] python-magnumclient python-openstackclient
+pip install --user keystoneauth1[kerberos] python-heatclient python-magnumclient python-openstackclient pysocks
 ```
 
 ## dotfiles
