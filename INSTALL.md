@@ -14,7 +14,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 apt-get update
 apt-get upgrade
 apt-get install abook blueman docker.io git golang-go google-chrome-stable hugo i3m i3status i3lock isync krb5-user links \
-	maim meld msmtp mutt notmuch openafs-client openafs-krb5 pasystray python3 python3-pip spotify-client terminator vim xclip
+	maim meld msmtp mutt notmuch openafs-client openafs-krb5 pasystray picom python3 python3-pip spotify-client terminator vim xclip
 ```
 ```bash
 pip install --user keystoneauth1[kerberos] python-heatclient python-magnumclient python-openstackclient pysocks

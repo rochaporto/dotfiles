@@ -197,12 +197,15 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # workspaces
 assign [window_role="^mail$"] 2
 assign [class="zoom"] 7
+# prevent full screen popups from zoom
+for_window [title="^zoom$"] floating enable
 assign [class="Slack"] 8
 # for some reason assign did not work
 for_window [class="Spotify"] move to workspace 9
 
 # Monitor binding
 bindsym $mod+Shift+p exec "mons -o"
-bindsym $mod+Shift+d exec "mons -d"
-bindsym $mod+Shift+s exec --no-startup-id xrandr --output eDP1 --primary --mode 1366x768 --rotate normal --output DP2-2-8 --off --output DP2-3 --off
+bindsym $mod+Shift+m exec "mons -m"
+bindsym $mod+Shift+s exec "mons -s"
 
+exec picom --backend glx
