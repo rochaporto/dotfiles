@@ -164,5 +164,5 @@ xinput list | grep -i touchpad
 ⎜   ↳ ELAN067B:00 04F3:31F8 Touchpad          	id=10	[slave  pointer  (2)]
 xinput --watch-props 10 | grep Finger
 	Synaptics Finger (348):	25, 30, 0
-xinput --set-prop 10 "Synaptics Finger" 50 80 257
+xinput --set-prop 10 "Synaptics Finger" 100 110 255
 ```
