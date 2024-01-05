@@ -171,6 +171,7 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Media controls (custom keys)
 bindsym $mod+P exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym $mod+n exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 # Media controls (builtin)
 bindsym XF86AudioPlay exec dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -208,4 +209,5 @@ bindsym $mod+Shift+p exec "mons -o"
 bindsym $mod+Shift+m exec "mons -m"
 bindsym $mod+Shift+s exec "mons -s"
 
-exec picom --backend glx
+# Not sure why this is needed, but it fixes the screen flickering after a suspend
+exec_always --no-startup-id "picom"
