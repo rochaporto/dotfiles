@@ -1,8 +1,8 @@
 #!/bin/bash
 cp ~/.kube/config ~/.kube/config.bak
 
-project=$(echo $OS_PROJECT_NAME | tr '[:upper:]' '[:lower:]' | sed 's/ /_/g')
-cluster="${project}-${1}"
+project=$(echo $OS_PROJECT_NAME | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
+cluster="${project}--${1}"
 
 openstack coe cluster config --dir /tmp --force $1
 
