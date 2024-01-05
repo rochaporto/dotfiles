@@ -14,7 +14,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 apt-get update
 apt-get upgrade
 apt-get install abook blueman docker.io git golang-go google-chrome-stable hugo i3m i3status i3lock isync krb5-user links \
-	maim meld msmtp mutt notmuch openafs-client openafs-krb5 pasystray picom python3 python3-pip spotify-client terminator vim xclip
+	maim meld msmtp mutt notmuch openafs-client openafs-krb5 pasystray picom python3 python3-pip spotify-client terminator vim xclip xserver-xorg-input-synaptics
 ```
 ```bash
 pip install --user keystoneauth1[kerberos] python-heatclient python-magnumclient python-openstackclient pysocks
@@ -154,4 +154,15 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash i915.enable_psr=0"
 sudo update-grub
 
 reboot
+```
+
+## Touchpad Click Touch and Sensitivity
+
+```bash
+apt install -y xinput xserver-xorg-input-synaptics
+xinput list | grep -i touchpad
+⎜   ↳ ELAN067B:00 04F3:31F8 Touchpad          	id=10	[slave  pointer  (2)]
+xinput --watch-props 10 | grep Finger
+	Synaptics Finger (348):	25, 30, 0
+xinput --set-prop 10 "Synaptics Finger" 50 80 257
 ```
