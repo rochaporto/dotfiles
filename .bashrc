@@ -113,5 +113,7 @@ export OS_PROTOCOL="kerberos"
 export OS_REGION_NAME="cern"
 export OS_VOLUME_API_VERSION="3"
 
+source /usr/share/bash-completion/bash_completion
+
 
 [[ -s "/home/ricardo/.gvm/scripts/gvm" ]] && source "/home/ricardo/.gvm/scripts/gvm"
