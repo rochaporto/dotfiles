@@ -9,6 +9,17 @@ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 ```
 
+## System Settings
+
+```bash
+sudo grep DNSSEC /etc/systemd/resolved.conf
+DNSSEC=no
+```
+This fixes the delay in kinit or ssh with:
+```bash
+debug3: Trying to reverse map address 188.184.91.57.
+```
+
 ## Apt Packages
 ```bash
 apt-get update
