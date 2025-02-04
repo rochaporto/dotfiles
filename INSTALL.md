@@ -20,6 +20,34 @@ This fixes the delay in kinit or ssh with:
 debug3: Trying to reverse map address 188.184.91.57.
 ```
 
+UPDATE: It doesn't seem the above fixes it, but the following krb5 does:
+```bash
+vim /etc/krb5.conf
+[libdefaults]
+	default_realm = CERN.CH
+
+    # required due to the slow reverse dns in some networks
+	dns_lookup_realm = false
+	dns_lookup_kdc = false
+...
+
+[realms]
+        CERN.CH = {
+                default_domain = cern.ch
+                kpasswd_server = cerndc.cern.ch
+                admin_server = cerndc.cern.ch
+                kdc = cerndc.cern.ch
+                dns_lookup_kdc = false
+                v4_name_convert = {
+                  host = {
+                    rcmd = host
+                  }
+                }
+        }
+...
+
+```
+
 ## Apt Packages
 ```bash
 apt-get update
