@@ -1,12 +1,13 @@
 [user]
-	email = rocha.porto@gmail.com 
+	email = ricardo.rocha@cern.ch
 	name = Ricardo Rocha
-	signingkey = AFCFC7D8
+	signingkey = 9CCCC35F8FE9280206B514D7019C0F8D5453F6BE
 [push]
 	default = matching
 [diff]
-[gitreview]
-	username = rocha-porto
-	username = rocha
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
