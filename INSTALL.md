@@ -54,7 +54,7 @@ vim /etc/krb5.conf
 apt-get update
 apt-get upgrade
 apt-get install abook autoconf autotools-dev blueman curl docker.io git golang-go google-chrome-stable hugo i3-wm i3status i3lock isync krb5-user lib-xcb-xtest0 libsasl2-dev libtool-bin links \
-	maim meld msmtp mutt notmuch openafs-client openafs-krb5 pasystray picom python3 python3-pip spotify-client terminator vim xclip xserver-xorg-input-synaptics
+	maim meld msmtp mutt notmuch openafs-client openafs-krb5 pasystray picom python3 python3-pip spotify-client suckless-tools terminator vim xclip xserver-xorg-input-synaptics
 ```
 ```bash
 pip install --user keystoneauth1[kerberos] python-heatclient python-magnumclient python-openstackclient pysocks
