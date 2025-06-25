@@ -1,11 +1,12 @@
 # Fresh Installation
 
 ## Repositories
+
 ```bash
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/google.gpg >/dev/null
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 
-curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
+wget -q -O - https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 ```
 
@@ -52,7 +53,7 @@ vim /etc/krb5.conf
 ```bash
 apt-get update
 apt-get upgrade
-apt-get install abook blueman docker.io git golang-go google-chrome-stable hugo i3m i3status i3lock isync krb5-user links \
+apt-get install abook autoconf autotools-dev blueman curl docker.io git golang-go google-chrome-stable hugo i3-wm i3status i3lock isync krb5-user lib-xcb-xtest0 libsasl2-dev libtool-bin links \
 	maim meld msmtp mutt notmuch openafs-client openafs-krb5 pasystray picom python3 python3-pip spotify-client terminator vim xclip xserver-xorg-input-synaptics
 ```
 ```bash
@@ -61,21 +62,21 @@ pip install --user keystoneauth1[kerberos] python-heatclient python-magnumclient
 
 ## dotfiles
 ```bash
-mkdir ws
-cd ws 
+mkdir -p ws/rochaporto
+cd ws/rochaporto
 git clone git@github.com:rochaporto/dotfiles.git
 cd dotfiles
 git submodule init
 git submodule update
 ```
 ```bash
-for f in .bash_aliases .bash_profile .bashrc .config/autorandr .config/terminator .gitconfig .gitignore .gitmodules .gnupg .i3 .i3status.conf .irssi .mailcap .mbsyncrc .msmtprc .mutt .muttrc .notmuch-config .vim .viminfo .vimrc .weechat; do ln -s /home/ricardo/ws/dotfiles/$f ~/$f; done
+for f in .bash_aliases .bash_profile .bashrc .config/autorandr .config/terminator .gitconfig .gitignore .gitmodules .gnupg .i3 .i3status.conf .irssi .mailcap .mbsyncrc .msmtprc .mutt .muttrc .notmuch-config .vim .viminfo .vimrc .weechat; do ln -s /home/ricardo/ws/rochaporto/dotfiles/$f ~/$f; done
 ```
 
 ## SSH
 ```bash
 mkdir ~/.ssh/controlmasters
-scp -r lxplus.cern.ch:~/.ssh/id_dsa ~/.ssh
+cp .ssh/id_rsa.pub .ssh/config ~/.ssh
 scp -r lxplus.cern.ch:~/.ssh/id_rsa ~/.ssh
 scp lxplus.cern.ch:~/.mutt/isyncpass.gpg .mutt
 ```
@@ -98,6 +99,9 @@ Reference: https://unix.stackexchange.com/questions/625637/configuring-mbsync-wi
 
 Authorize once per machine to get the refresh_token.
 ```bash
+wget -O bin/mutt_oauth2.py https://gitlab.com/muttmua/mutt/-/raw/master/contrib/mutt_oauth2.py?inline=false
+chmod 755 bin/mutt_oauth2.py
+
 mutt_oauth2.py -a --authflow localhostauthcode ~/.mbsync.oauth2token
 ```
 SASL XOAuth2 Plugin
@@ -136,14 +140,16 @@ sudo usermod -aG docker ricardo
 ### kubectl
 ```bash
 wget "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" -O ~/bin/kubectl
+chmod 755 bin/kubectl
 ```
 
 ### helm
 ```bash
-wget https://get.helm.sh/helm-v3.5.0-linux-amd64.tar.gz
-tar zxvf helm-v3.5.0-linux-amd64.tar.gz
+wget https://get.helm.sh/helm-v3.18.3-linux-amd64.tar.gz
+tar zxvf helm-v3.18.3-linux-amd64.tar.gz
 mv linux-amd64/helm ~/bin
-rm -rf helm-v3.5.0* linux-amd64
+rm -rf helm-v3.18.3* linux-amd64
+chmod 755 bin/helm
 ```
 
 ### argocd
@@ -170,15 +176,10 @@ mv /tmp/eksctl ~/bin
 
 ## Media & Chat
 
-## skype
-```bash
-sudo snap install skype --classic
-```
-
 ## zoom
 ```bash
 wget https://zoom.us/client/latest/zoom_amd64.deb
-sudo apt install ./zoom_amd64.deb
+sudo dpkg --install ./zoom_amd64.deb
 ```
 
 ## Screen Flicker Lenovo X1
