@@ -72,6 +72,9 @@ git submodule update
 ```bash
 for f in .bash_aliases .bash_profile .bashrc .config/autorandr .config/terminator .gitconfig .gitignore .gitmodules .gnupg .i3 .i3status.conf .irssi .mailcap .mbsyncrc .msmtprc .mutt .muttrc .notmuch-config .vim .viminfo .vimrc .weechat; do ln -s /home/ricardo/ws/rochaporto/dotfiles/$f ~/$f; done
 ```
+```bash
+cp bin/* ~/bin
+```
 
 ## SSH
 ```bash
@@ -95,15 +98,17 @@ gpg --encrypt --armor sample.txt
 
 ## Mail
 
-Reference: https://unix.stackexchange.com/questions/625637/configuring-mbsync-with-authmech-xoauth2
+References:
+* https://unix.stackexchange.com/questions/625637/configuring-mbsync-with-authmech-xoauth2
+* https://people.math.ethz.ch/~mmarcio/mutt-oauth2-outlook
 
-Authorize once per machine to get the refresh_token.
+Authorize once per machine to get the refresh_token. The `mutt_oauth2.py` file in `bin` in this repo has all the required parameters.
 ```bash
-wget -O bin/mutt_oauth2.py https://gitlab.com/muttmua/mutt/-/raw/master/contrib/mutt_oauth2.py?inline=false
-chmod 755 bin/mutt_oauth2.py
-
 mutt_oauth2.py -a --authflow localhostauthcode ~/.mbsync.oauth2token
 ```
+
+Due to a [bug](https://bugs.launchpad.net/ubuntu/+source/isync/+bug/2111196) in the version coming with Ubuntu 25.04 i had to build isync 1.5.1.
+
 SASL XOAuth2 Plugin
 ```bash
 git clone https://github.com/moriyoshi/cyrus-sasl-xoauth2.git
