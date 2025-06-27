@@ -10,7 +10,7 @@ AuthMechs XOAUTH2
 Port 993
 User ricardo.rocha@cern.ch
 PassCmd "mutt_oauth2.py ~/.mbsync.oauth2token"
-SSLType IMAPS
+TLSType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
 # remotes
