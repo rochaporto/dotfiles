@@ -11,7 +11,8 @@
 
 set $mod Mod4
 
-new_window 1pixel
+default_border pixel 1
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -188,8 +189,8 @@ exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
 
 # Screenshot capture
-bindsym Ctrl+$mod+s exec maim -s | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Shift+s exec maim -s | xclip -selection clipboard -t image/png -o > /tmp/clipboard.png
+bindsym Ctrl+$mod+s exec maim -s -o | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Shift+s exec maim -s -o | xclip -selection clipboard -t image/png -o > /tmp/clipboard.png
 
 # Brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -210,4 +211,4 @@ bindsym $mod+Shift+m exec "mons -m"
 bindsym $mod+Shift+s exec "mons -s"
 
 # Not sure why this is needed, but it fixes the screen flickering after a suspend
-exec_always --no-startup-id "picom"
+#exec_always --no-startup-id "picom"
