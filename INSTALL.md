@@ -53,7 +53,7 @@ vim /etc/krb5.conf
 ```bash
 apt-get update
 apt-get upgrade
-apt-get install abook autoconf autotools-dev blueman brightnessctl curl docker.io elinks evince git golang-go google-chrome-stable hugo i3-wm i3status i3lock isync krb5-user libkrb5-dev lib-xcb-xtest0 libsasl2-dev libtool-bin links maim meld mkdocs msmtp mutt notmuch openafs-client openafs-krb5 pulseaudio-utils pasystray picom python3 python3-pip spotify-client suckless-tools terminator vim xclip xserver-xorg-input-synaptics
+apt-get install abook autoconf autotools-dev blueman brightnessctl curl docker.io elinks evince git golang-go google-chrome-stable hugo i3-wm i3status i3lock isync krb5-user libkrb5-dev lib-xcb-xtest0 libsasl2-dev libtool-bin links maim meld mkdocs mkdocs-material msmtp mutt notmuch openafs-client openafs-krb5 pulseaudio-utils pasystray picom python3 python3-pip python3-pymdownx spotify-client suckless-tools terminator vim xclip xserver-xorg-input-synaptics
 ```
 ```bash
 pip install --user --break-system-packages keystoneauth1[kerberos] python-heatclient python-magnumclient python-openstackclient python-octaviaclient pysocks
