@@ -77,6 +77,13 @@ cp bin/* ~/bin
 
 Delete the default `.config/i3/config` file as we're using `.i3/config`.
 
+## Audio
+
+As of ubuntu 25.04 pipewire is not working properly on a X1. To go back to pulseaudio:
+```bash
+apt-get install -y pulseaudio
+```
+
 ## SSH
 ```bash
 mkdir ~/.ssh/controlmasters
