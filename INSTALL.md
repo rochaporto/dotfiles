@@ -13,16 +13,6 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 ## System Settings
 
 ```bash
-sudo grep DNSSEC /etc/systemd/resolved.conf
-DNSSEC=no
-```
-This fixes the delay in kinit or ssh with:
-```bash
-debug3: Trying to reverse map address 188.184.91.57.
-```
-
-UPDATE: It doesn't seem the above fixes it, but the following krb5 does:
-```bash
 vim /etc/krb5.conf
 [libdefaults]
 	default_realm = CERN.CH
@@ -47,6 +37,11 @@ vim /etc/krb5.conf
         }
 ...
 
+```
+
+This fixes the delay in kinit or ssh with:
+```bash
+debug3: Trying to reverse map address 188.184.91.57.
 ```
 
 ## Apt Packages
