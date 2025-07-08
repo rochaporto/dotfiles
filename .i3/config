@@ -193,8 +193,8 @@ bindsym Ctrl+$mod+s exec maim -s -o | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Shift+s exec maim -s -o | xclip -selection clipboard -t image/png -o > /tmp/clipboard.png
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo brightnessctl set 5%-
 
 # workspaces
 assign [window_role="^mail$"] 2
