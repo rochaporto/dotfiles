@@ -19,3 +19,16 @@ bin/*
 .ssh/known_hosts
 .vim/.netrwhist
 .weechat/logs
+.config/autorandr/autorandr
+.gnupg/.gnupg
+.gnupg/.gpg-v21-migrated
+.gnupg/5453F6BE-key-export.asc
+.gnupg/gnupg_spawn_agent_sentinel.lock
+.gnupg/gpg-agent.conf
+.gnupg/random_seed
+.gnupg/sshcontrol
+.i3/.i3
+.irssi/.irssi
+.mutt/.mutt
+.vim/.vim
+.weechat/.weechat
