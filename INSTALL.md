@@ -138,6 +138,10 @@ crontab -e
 0 0 * * * /home/ricardo/bin/ldap2abook
 ```
 
+## Browser
+
+Import options from the zero omega backup in the `etc` directory of this repo.
+
 ## Container Tools
 
 ### docker
