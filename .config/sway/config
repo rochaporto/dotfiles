@@ -80,7 +80,10 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+# hacked vs standard sequence due to chrome behavior
+# reference: https://www.reddit.com/r/i3wm/comments/ed5qmw/comment/fdemun6/
+#bindsym $mod+f fullscreen
+bindsym $mod+f split v; focus parent; fullscreen toggle; focus child
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
