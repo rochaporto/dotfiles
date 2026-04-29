@@ -48,7 +48,7 @@ debug3: Trying to reverse map address 188.184.91.57.
 ```bash
 apt-get update
 apt-get upgrade
-apt-get install abook autoconf autotools-dev blueman brightnessctl curl docker.io elinks evince git golang-go google-chrome-stable hugo i3-wm i3status i3lock isync krb5-user libkrb5-dev lib-xcb-xtest0 libsasl2-dev libtool-bin links maim meld mkdocs mkdocs-material msmtp mutt notmuch openafs-client openafs-krb5 pulseaudio-utils pasystray picom python3 python3-pip python3-pymdownx spotify-client suckless-tools terminator vim xclip xserver-xorg-input-synaptics
+apt-get install abook autoconf autotools-dev blueman brightnessctl curl docker.io elinks eog evince git golang-go google-chrome-stable grim hugo isync krb5-user libkrb5-dev lib-xcb-xtest0 libsasl2-dev libtool-bin links maim meld mkdocs mkdocs-material msmtp mutt notmuch nwg-displays openafs-client openafs-krb5 pavucontrol pulseaudio-utils pasystray picom python3 python3-pip python3-pymdownx slurp spotify-client suckless-tools sway swaylock terminator vim waybar wl-clipboard xclip xserver-xorg-input-synaptics
 ```
 ```bash
 pip install --user --break-system-packages keystoneauth1[kerberos] python-heatclient python-magnumclient python-openstackclient python-octaviaclient pysocks
